@@ -1,0 +1,142 @@
+:root {
+    --bg: #0f1115;
+    --card: #15171b;
+    --accent: #2ecc71;
+    --muted: #bfc6c8;
+    --text: #e6eef0
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Arial;
+    background: var(--bg);
+    color: var(--text)
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 10px
+}
+
+.logo-sm {
+    height: 28px;
+    margin-right: 8px
+}
+
+.auth-card {
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 28px;
+    background: var(--card);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    text-align: center
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: transparent;
+    color: var(--text)
+}
+
+.row {
+    display: flex;
+    gap: 8px
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer
+}
+
+.btn-accent {
+    background: var(--accent);
+    color: #04210a;
+    font-weight: 700
+}
+
+.btn-link {
+    background: transparent;
+    color: var(--accent);
+    text-decoration: underline
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 6px 10px;
+    border-radius: 8px
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 24px
+}
+
+.sidebar {
+    width: 280px
+}
+
+.main {
+    flex: 1
+}
+
+.card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 12px
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px
+}
+
+.small {
+    height: 220px
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center
+}
+
+.modal-card {
+    background: var(--card);
+    padding: 16px;
+    border-radius: 10px;
+    width: 360px
+}
+
+.error {
+    color: #ffb74d
+}
+
+.history-entry {
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03)
+}
+
+.theme-light {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --text: #111;
+    --accent: #1e9a4a
+}

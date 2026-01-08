@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portal EH - Dashboard</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header style="padding:18px; background:#111; border-bottom:1px solid rgba(255,255,255,0.08);">
+    <h2 style="margin:0; color:var(--accent)">Portal EH – Dashboard</h2>
+
+    <button onclick="logout()"
+            class="btn btn-ghost"
+            style="float:right; margin-top:-35px;">
+        Sair
+    </button>
+</header>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="card sidebar">
+        <h3>Mangueiras</h3>
+
+        <!-- LISTA DE MANGUEIRAS -->
+        <div id="lista-mangueiras">
+            <!-- preenchido via dashboard.js -->
+        </div>
+
+        <button id="addHoseBtn"
+                class="btn btn-accent"
+                style="margin-top:16px;">
+            Adicionar Mangueira
+        </button>
+    </aside>
+
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main">
+
+        <h2 id="welcome"></h2>
+
+        <!-- STATUS -->
+        <section class="card">
+            <h3>Status Atual</h3>
+            <div id="hoseStatus">
+                Selecione uma mangueira à esquerda.
+            </div>
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section class="card" style="margin-top:16px">
+            <h3>Histórico</h3>
+            <div id="historico">
+                Selecione uma mangueira para ver o histórico.
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MODAL ADICIONAR MANGUEIRA -->
+<div id="addModal" class="modal">
+    <div class="modal-card">
+        <h3>Adicionar Mangueira</h3>
+
+        <form id="addHoseForm">
+            <label>Nome</label>
+            <input name="nome" required>
+
+            <div style="text-align:right; margin-top:12px;">
+                <button type="button"
+                        id="closeAdd"
+                        class="btn btn-ghost">
+                    Cancelar
+                </button>
+
+                <button class="btn btn-accent"
+                        type="submit">
+                    Adicionar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/assets/js/dashboard.js"></script>
+
+</body>
+</html>

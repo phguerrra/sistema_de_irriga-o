@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adicionar Cliente – Portal EH</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="page-auth">
+  <div style="text-align:center; margin-top:25px; font-size:26px; font-weight:700; color:#4caf50;">
+    Portal EH
+  </div>
+
+  <main class="auth-card">
+    <h1>Novo Cliente</h1>
+
+    <form id="clienteForm">
+      <label>Nome do Cliente</label>
+      <input name="nome" required>
+      <div class="row" style="margin-top:15px;">
+        <button class="btn btn-accent" type="submit">Criar</button>
+        <a class="btn btn-link" href="/index.html">Voltar</a>
+      </div>
+    </form>
+
+    <p id="clienteError" class="error"></p>
+    <p id="clienteSuccess" style="color:green"></p>
+  </main>
+
+  <script src="/assets/js/clientes.js"></script>
+</body>
+</html>

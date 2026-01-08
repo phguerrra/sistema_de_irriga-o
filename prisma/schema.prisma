@@ -1,0 +1,49 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Usuario {
+  id        Int        @id @default(autoincrement())
+  nome      String
+  email     String     @unique
+  senha_hash String
+
+  mangueiras Mangueira[]
+}
+
+model Mangueira {
+  id        Int        @id @default(autoincrement())
+  nome      String
+  criado_em DateTime   @default(now())
+
+  usuarioId Int
+  usuario   Usuario    @relation(fields: [usuarioId], references: [id])
+  chip_id   String?
+
+  status    StatusMangueira?
+  historico Historico[]
+}
+
+model StatusMangueira {
+  id           Int      @id @default(autoincrement())
+  status       String   // ligado | desligado
+  atualizadoEm DateTime @updatedAt
+
+  mangueiraId  Int      @unique
+  mangueira    Mangueira @relation(fields: [mangueiraId], references: [id])
+}
+
+model Historico {
+  id           Int      @id @default(autoincrement())
+  ligadoEm     DateTime
+  desligadoEm  DateTime?
+  tempoLigado  Int?     // em segundos
+
+  mangueiraId  Int
+  mangueira    Mangueira @relation(fields: [mangueiraId], references: [id])
+}

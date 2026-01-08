@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body class="page-auth">
+
+<div class="auth-card">
+    <h1>Meu Perfil</h1>
+
+    <p><strong>Nome:</strong> <span id="nomeUser"></span></p>
+    <p><strong>Email:</strong> <span id="emailUser"></span></p>
+
+    <button class="btn btn-ghost" onclick="logout()">Sair</button>
+</div>
+
+<script>
+document.getElementById('nomeUser').textContent = localStorage.getItem("usuario_nome") || "";
+document.getElementById('emailUser').textContent = localStorage.getItem("usuario_email") || "";
+</script>
+
+<script src="/assets/js/auth.js"></script>
+</body>
+</html>

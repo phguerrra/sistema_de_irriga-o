@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portal EH - Registrar</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+
+<body class="page-auth">
+
+    <div style="text-align:center; margin-top:25px; font-size:26px; font-weight:700; color:#4caf50;">
+        Portal EH
+    </div>
+
+    <main class="auth-card">
+        <h1>Criar Conta</h1>
+        <form id="registerForm">
+            <label>Nome</label>
+            <input name="nome" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Senha</label>
+            <input type="password" name="senha" required minlength="6">
+
+            <div class="row">
+                <button class="btn btn-accent" type="submit">Criar</button>
+                <a class="btn btn-link" href="/login.html">Voltar</a>
+            </div>
+        </form>
+
+        <p id="regError" class="error"></p>
+    </main>
+
+    <script src="/assets/js/auth.js"></script>
+</body>
+
+</html>
