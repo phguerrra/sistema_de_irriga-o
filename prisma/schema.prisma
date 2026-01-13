@@ -31,12 +31,13 @@ model Mangueira {
 
 model StatusMangueira {
   id           Int      @id @default(autoincrement())
-  status       String   // ligado | desligado
-  atualizadoEm DateTime @updatedAt
-
   mangueiraId  Int      @unique
-  mangueira    Mangueira @relation(fields: [mangueiraId], references: [id])
+  status       String
+  sensorStatus String   @default("OK")
+
+  mangueira Mangueira @relation(fields: [mangueiraId], references: [id])
 }
+
 
 model Historico {
   id           Int      @id @default(autoincrement())

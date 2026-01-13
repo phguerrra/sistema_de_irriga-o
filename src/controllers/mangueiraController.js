@@ -49,18 +49,22 @@ exports.ligar = async (req, res) => {
   const mangueiraId = Number(req.params.mangueira);
   const userId = req.user.id;
 
-  const topic = `irrigacao/${userId}/${mangueiraId}/cmd`;
-  console.log("📤 MQTT ON:", topic);
-
-  mqtt.publish(topic, JSON.stringify({ action: "on" }));
-
-  await prisma.statusMangueira.update({
-    where: { mangueiraId },
-    data: { status: "LIGANDO" }
+  const status = await prisma.statusMangueira.findUnique({
+    where: { mangueiraId }
   });
+
+  if (status.sensorStatus === "falha") {
+    return res.status(403).json({
+      error: "Irrigação bloqueada: sensor em FALHA"
+    });
+  }
+
+  const topic = `irrigacao/${userId}/${mangueiraId}/cmd`;
+  mqtt.publish(topic, JSON.stringify({ action: "on" }));
 
   res.json({ ok: true });
 };
+
 
 // ================================
 // DESLIGAR (MODELO ANTIGO)

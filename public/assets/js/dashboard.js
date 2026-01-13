@@ -50,7 +50,7 @@ function selecionarMangueira(m) {
 }
 
 // ================================
-// STATUS ATUAL
+// STATUS ATUAL (COM SENSOR)
 // ================================
 async function carregarStatus() {
   const res = await fetch(`/api/status/${mangueiraSelecionada.id}`, {
@@ -62,21 +62,17 @@ async function carregarStatus() {
   const status = await res.json();
 
   document.getElementById("hoseStatus").innerHTML = `
-    <p><strong>Status:</strong> ${status.status}</p>
+  <p><strong>Status:</strong> ${status.status}</p>
+  <p><strong>Sensor:</strong> ${status.sensorStatus}</p>
 
-    <button class="btn btn-accent" onclick="ligar()">
-      Ligar
-    </button>
+  <button class="btn btn-accent" onclick="ligar()">Ligar</button>
+  <button class="btn btn-danger" onclick="desligar()">Desligar</button>
+`;
 
-    <button class="btn btn-danger" onclick="desligar()">
-      Desligar
-    </button>
-  `;
 }
 
-
 // ================================
-// HISTÓRICO (CORRIGIDO)
+// HISTÓRICO
 // ================================
 async function carregarHistorico() {
   const res = await fetch(
